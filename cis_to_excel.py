@@ -56,7 +56,7 @@ f.write(data)
 with open(cistext, 'r', encoding='utf-8') as filer:
     with open('temp.txt', 'w', encoding='utf-8') as filew:
         for line in filer:
-            line = re.sub(r'Page \d{1,3}', '', line)    #Remove the page numbers
+            line = re.sub(r'Page \d{1,3}.?', '', line)    #Remove the page numbers (auch die mit einem Leerzeichen am Ende der Zeile)
             if not line.strip():
                 continue
             if line:
@@ -79,7 +79,7 @@ with open("temp.txt", 'r', encoding='utf-8') as filer:
         if line.strip():
 
             x = {} #json object
-            if re.match(r"^[0-9]\.[0-9]", line):
+            if re.match(r"^[0-9]{1,2}\.[0-9]", line) and ("(L1)" in line or "(L2)" in line or "(NG)" in line or "(BL)" in line): # war falsch: hier kommen auch die Verweise auf die CIS Controls mit rein, was wir nicht wollen
                 flagTitle = True
                 cis_title = line
                 continue
