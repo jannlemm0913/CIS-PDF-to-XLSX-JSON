@@ -26,7 +26,7 @@ Exports it into json formats for other use if desired and finally converts into 
 Place CIS benchmark in same running directory, eg. `CIS_Red_Hat_Enterprise_Linux_8_Benchmark_v2.0.0.pdf` 
 
 ```bash
-python cis_to_excel.py CIS_Red_Hat_Enterprise_Linux_8_Benchmark_v2.0.0.pdf output
+python3 cis_to_excel.py CIS_Red_Hat_Enterprise_Linux_8_Benchmark_v2.0.0.pdf output
 ```
 - 'input' will be CIS benchmark pdf in same directory
 - 'output' will be used to generate 'output.xlsx' and 'output.json'. It is not necessary to provide the extension
