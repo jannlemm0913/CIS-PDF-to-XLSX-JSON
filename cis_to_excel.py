@@ -79,7 +79,8 @@ with open("temp.txt", 'r', encoding='utf-8') as filer:
         if line.strip():
 
             x = {} #json object
-            if re.match(r"^[0-9]{1,2}\.[0-9]", line) and ("(L1)" in line or "(L2)" in line or "(NG)" in line or "(BL)" in line): # war falsch: hier kommen auch die Verweise auf die CIS Controls mit rein, was wir nicht wollen
+            if re.match(r"^[0-9]{1,2}\.[0-9]", line) and ("(L1)" in line or "(L2)" in line or "(NG)" in line or "(BL)" in line or "(Manual)" in line or "(Automated)" in line): # war falsch: hier kommen auch die Verweise auf die CIS Controls mit rein, was wir nicht wollen
+                # Manual and Automated added for CIS IBM DB2 benchmark (does not define levels like Windows CIS benchmarks)
                 flagTitle = True
                 cis_title = line
                 continue
